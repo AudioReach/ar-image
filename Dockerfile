@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM public.ecr.aws/lts/ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ARG USER
