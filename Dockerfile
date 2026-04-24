@@ -22,39 +22,40 @@ RUN TZ="Etc/UTC" \
 
 # Install required dependencies
 RUN apt-get update && apt install -y apt-transport-https apt-utils fuseext2 \
-	build-essential \
-	chrpath \
-	curl \
-	cpio \
-	debianutils \
-	diffstat \
-	file \
-	gawk \
-	gcc \
-	gcc-multilib \
-	git \
-	gpg-agent \
-	iputils-ping \
-	locales \
-	liblz4-tool \
-	libsdl1.2-dev \
-	openssh-client \
-	python3 \
-	python3-git \
-	python3-pip \
-	python3-pexpect \
-	python3-software-properties \
-	socat \
-	software-properties-common \
-	tar \
-	texinfo \
-	tmux \
-	unzip \
-	vim \
-	wget \
-	xterm \
-	xz-utils \
-	zstd \
+    bc \
+    build-essential \
+    chrpath \
+    curl \
+    cpio \
+    debianutils \
+    diffstat \
+    file \
+    gawk \
+    gcc \
+    gcc-multilib \
+    git \
+    gpg-agent \
+    iputils-ping \
+    locales \
+    liblz4-tool \
+    libsdl1.2-dev \
+    openssh-client \
+    python3 \
+    python3-git \
+    python3-pip \
+    python3-pexpect \
+    python3-software-properties \
+    socat \
+    software-properties-common \
+    tar \
+    texinfo \
+    tmux \
+    unzip \
+    vim \
+    wget \
+    xterm \
+    xz-utils \
+    zstd \
     && rm -rf -- /var/lib/apt/lists/*
 
 # Install Python packages
