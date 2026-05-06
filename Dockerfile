@@ -22,6 +22,7 @@ RUN TZ="Etc/UTC" \
 
 # Install required dependencies
 RUN apt-get update && apt install -y apt-transport-https apt-utils fuseext2 \
+    bc \
     build-essential \
     chrpath \
     curl \
