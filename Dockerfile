@@ -59,7 +59,7 @@ RUN apt-get update && apt install -y apt-transport-https apt-utils fuseext2 \
     && rm -rf -- /var/lib/apt/lists/*
 
 # Install Python packages
-RUN pip install --no-cache-dir requests kas==4.7
+RUN pip install --no-cache-dir --break-system-packages requests kas==4.7
 
 # Set python default
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1
