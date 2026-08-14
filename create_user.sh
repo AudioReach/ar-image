@@ -5,9 +5,15 @@ USER=${USER:-"ubuntu"}
 USER_ID=${USER_ID:-1000}
 GROUP_ID=${GROUP_ID:-1000}
 
-# Create user
-groupadd -g "$GROUP_ID" "$USER"
-useradd -m -s /bin/bash -u "$USER_ID" -g "$GROUP_ID" "$USER"
+# Create group only if it doesn't already exist
+if ! getent group "$GROUP_ID" > /dev/null 2>&1; then
+    groupadd -g "$GROUP_ID" "$USER"
+fi
+
+# Create user only if it doesn't already exist
+if ! getent passwd "$USER_ID" > /dev/null 2>&1; then
+    useradd -m -s /bin/bash -u "$USER_ID" -g "$GROUP_ID" "$USER"
+fi
 
 # Add the user to sudo group
 apt-get update
