@@ -1,4 +1,4 @@
-FROM public.ecr.aws/lts/ubuntu:22.04
+FROM public.ecr.aws/lts/ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ARG USER
@@ -62,7 +62,7 @@ RUN apt-get update && apt install -y apt-transport-https apt-utils fuseext2 \
 RUN pip install --no-cache-dir requests kas==4.7
 
 # Set python default
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1
 
 # Ensure /bin/sh points to bash
 RUN ln -sf /bin/bash /bin/sh
