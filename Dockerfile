@@ -1,4 +1,4 @@
-FROM public.ecr.aws/lts/ubuntu:22.04
+FROM public.ecr.aws/lts/ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ARG USER
@@ -22,46 +22,47 @@ RUN TZ="Etc/UTC" \
 
 # Install required dependencies
 RUN apt-get update && apt install -y apt-transport-https apt-utils fuseext2 \
-	build-essential \
-	chrpath \
-	curl \
-	cpio \
-	debianutils \
-	diffstat \
-	file \
-	gawk \
-	gcc \
-	gcc-multilib \
-	git \
-	gpg-agent \
-	iputils-ping \
-	locales \
-	liblz4-tool \
-	libsdl1.2-dev \
-	openssh-client \
-	python3 \
-	python3-git \
-	python3-pip \
-	python3-pexpect \
-	python3-software-properties \
-	socat \
-	software-properties-common \
-	tar \
-	texinfo \
-	tmux \
-	unzip \
-	vim \
-	wget \
-	xterm \
-	xz-utils \
-	zstd \
+    bc \
+    build-essential \
+    chrpath \
+    curl \
+    cpio \
+    debianutils \
+    diffstat \
+    file \
+    gawk \
+    gcc \
+    gcc-multilib \
+    git \
+    gpg-agent \
+    iputils-ping \
+    locales \
+    liblz4-tool \
+    libsdl1.2-dev \
+    openssh-client \
+    python3 \
+    python3-git \
+    python3-pip \
+    python3-pexpect \
+    python3-software-properties \
+    socat \
+    software-properties-common \
+    tar \
+    texinfo \
+    tmux \
+    unzip \
+    vim \
+    wget \
+    xterm \
+    xz-utils \
+    zstd \
     && rm -rf -- /var/lib/apt/lists/*
 
 # Install Python packages
-RUN pip install --no-cache-dir requests kas==4.7
+RUN pip install --no-cache-dir --break-system-packages requests kas==4.7
 
 # Set python default
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1
 
 # Ensure /bin/sh points to bash
 RUN ln -sf /bin/bash /bin/sh
