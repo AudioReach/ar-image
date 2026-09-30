@@ -24,6 +24,7 @@ RUN TZ="Etc/UTC" \
 RUN apt-get update && apt install -y apt-transport-https apt-utils fuseext2 \
     bc \
     build-essential \
+    ccache \
     chrpath \
     curl \
     cpio \
